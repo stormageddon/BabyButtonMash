@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://burp1mv1afxun"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1t3kl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4qk"]
+size = Vector2(1461, 20)
+
+[node name="Game" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_1t3kl")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Floor"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/RigidBody2D"]
+position = Vector2(521.5, 638)
+shape = SubResource("RectangleShape2D_lg4qk")

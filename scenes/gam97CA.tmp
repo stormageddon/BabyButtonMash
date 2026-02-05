@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://burp1mv1afxun"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1t3kl"]
+[ext_resource type="AudioStream" uid="uid://dht2c6p31cwl4" path="res://assets/SFX/pop.ogg" id="2_einrb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ltlm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4qk"]
+size = Vector2(1461, 20)
+
+[node name="Game" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_1t3kl")
+
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2(508, 634)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Floor"]
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor/RigidBody2D"]
+visible = false
+position = Vector2(-1.99998, 0)
+scale = Vector2(1408, 10)
+texture = SubResource("PlaceholderTexture2D_ltlm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/RigidBody2D"]
+shape = SubResource("RectangleShape2D_lg4qk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_einrb")
+playback_type = 1

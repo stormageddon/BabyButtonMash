@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ymkg0xeqb1j"]
+
+[ext_resource type="Script" path="res://scripts/animal.gd" id="1_asbo1"]
+[ext_resource type="Texture2D" uid="uid://3jnyj0mbk8ge" path="res://assets/bear.png" id="1_sgusm"]
+[ext_resource type="AudioStream" uid="uid://d3sxnc45g555i" path="res://assets/SFX/hit.mp3" id="3_2k4tf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xripr"]
+radius = 62.8172
+
+[node name="Animal" type="Node2D"]
+script = ExtResource("1_asbo1")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+input_pickable = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_sgusm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_xripr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2k4tf")
+volume_db = -4.952
+playback_type = 1
+
+[connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_exited"]
