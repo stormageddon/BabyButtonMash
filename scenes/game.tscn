@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://burp1mv1afxun"]
+[gd_scene load_steps=6 format=3 uid="uid://burp1mv1afxun"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1t3kl"]
 [ext_resource type="AudioStream" uid="uid://dht2c6p31cwl4" path="res://assets/SFX/pop.ogg" id="2_einrb"]
+[ext_resource type="Texture2D" uid="uid://ut8xskrrjf16" path="res://assets/simple_background/background.png" id="3_whhxl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ltlm8"]
 
@@ -9,6 +10,26 @@
 size = Vector2(1461, 20)
 
 [node name="Game" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -1782.0
+offset_top = -1427.0
+offset_right = 3996.0
+offset_bottom = 2158.0
+texture = ExtResource("3_whhxl")
+expand_mode = 2
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_1t3kl")
@@ -30,5 +51,6 @@ shape = SubResource("RectangleShape2D_lg4qk")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(542, 324)
 stream = ExtResource("2_einrb")
 playback_type = 1
