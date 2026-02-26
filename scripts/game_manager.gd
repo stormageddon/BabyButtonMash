@@ -12,6 +12,13 @@ func _ready() -> void:
 	print_debug('game started')
 	audioStream = %AudioStreamPlayer2D
 	
+	var floor = get_parent().find_child("Floor") as Node2D
+	if floor != null:
+		floor.global_position = Vector2(50, get_viewport().get_visible_rect().size.y)
+		floor.scale.x = 10			
+	else:
+		print_debug('floor not found')
+	
 	last_size = DisplayServer.window_get_size()
 
 	
@@ -30,9 +37,9 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:	
 	#print_debug('input even ' + event.as_text());
 	if Input.is_anything_pressed():
-		if event is not InputEventKey:
-			pass
-		else:
+		#if event is not InputEventKey:
+			#pass
+		#else:
 			if last_instantiation > 0:
 				pass
 			else:
