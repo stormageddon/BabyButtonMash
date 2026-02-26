@@ -2,3 +2,6 @@
 .godot/
 dist/*
 /android/
+# .NET build output (DLLs and exe; regenerate with dotnet build or dotnet publish)
+dotnet/AltTabBlocker/bin/
+dotnet/AltTabBlocker/obj/

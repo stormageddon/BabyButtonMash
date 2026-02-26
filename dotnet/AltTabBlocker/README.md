@@ -13,7 +13,7 @@ Uses the Windows API `SetWindowsHookEx` with `WH_KEYBOARD_LL` to intercept and b
 The launcher always starts **BabyButtonMash.exe** from the same folder as the launcher. No arguments needed.
 
 1. Export your Godot game as `BabyButtonMash.exe` (or ensure your export uses that name).
-2. Copy `AltTabBlocker.exe` (from `bin\Debug\netcoreapp3.1\win-x64\`) into the **same folder** as `BabyButtonMash.exe`.
+2. Copy `AltTabBlocker.exe` into the **same folder** as `BabyButtonMash.exe`. Use the single exe from `bin\Release\netcoreapp3.1\win-x64\publish\` (after `dotnet publish -c Release`) so you don’t need any DLLs.
 3. Run `AltTabBlocker.exe`. It will start the game with Alt+Tab, Print Screen, and Windows key blocked. When the player closes the game, the launcher exits and keys work normally again.
 
 Double-click `AltTabBlocker.exe` (or a shortcut to it) to play with the blocker active.
@@ -24,6 +24,11 @@ Double-click `AltTabBlocker.exe` (or a shortcut to it) to play with the blocker 
 - Call `AltTabBlocker.Uninstall()` before exit.
 
 Blocked keys: Alt+Tab, Print Screen, Left/Right Windows key.
+
+## Building
+
+- **Single exe (for distribution):** Run `dotnet publish -c Release`. The output is **one file**, `AltTabBlocker.exe`, in `bin\Release\netcoreapp3.1\win-x64\publish\`. Copy only that exe next to your game; no DLLs needed. The exe is larger (~66 MB) because it includes the .NET runtime.
+- **Development build:** `dotnet build` produces many DLLs in `bin\Debug\netcoreapp3.1\win-x64\` (the normal .NET layout). Use this when developing; use **publish** when you want to ship or run without the SDK.
 
 ## Requirements
 
