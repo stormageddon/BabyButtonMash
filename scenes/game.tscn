@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://cqebf7afayypr" path="res://scripts/game_manager.gd" id="1_1t3kl"]
 [ext_resource type="AudioStream" uid="uid://dht2c6p31cwl4" path="res://assets/SFX/pop.ogg" id="2_einrb"]
 [ext_resource type="Texture2D" uid="uid://ut8xskrrjf16" path="res://assets/simple_background/background.png" id="3_whhxl"]
-[ext_resource type="Script" uid="uid://ba01o7vdw31mh" path="res://scenes/Sharp.cs" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://dw5ml2i8cjjw6" path="res://assets/unlocked.png" id="5_iywne"]
-[ext_resource type="Script" uid="uid://dviadhnf7m6ip" path="res://scripts/LockButton.cs" id="6_p57ef"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ltlm8"]
 
@@ -59,17 +56,5 @@ stream = ExtResource("2_einrb")
 playback_type = 1
 
 [node name="Node" type="Node" parent="." unique_id=1748162686]
-script = ExtResource("4_lbhrr")
 
 [node name="UI Layer" type="CanvasLayer" parent="." unique_id=1883961370]
-
-[node name="Button" type="Button" parent="UI Layer" unique_id=1332687406]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -108.0
-offset_bottom = 108.0
-grow_horizontal = 0
-icon = ExtResource("5_iywne")
-flat = true
-script = ExtResource("6_p57ef")
